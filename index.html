@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SVG Filter Effect</title>
+    <!--<link rel="stylesheet" href="style.css">-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            filter: url(#wavy);
+        }
+
+        svg {
+            width: 0;
+            height: 0;
+        }
+
+        h2 {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            font-weight: 900;
+            font-size: 8em;
+            animation: animate 20s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: rotate(360deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg>
+        <filter id="wavy">
+            <feTurbulence type="turbulence" baseFrequency="0.005" numOctaves="5"></feTurbulence>
+            <feDisplacementMap in="SourceGraphic" scale="50"></feDisplacementMap>
+        </filter>
+    </svg>
+    <h2>Wavy Text</h2>
+</body>
+</html>
